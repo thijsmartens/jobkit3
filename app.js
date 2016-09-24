@@ -18,7 +18,7 @@ var aboutRoutes = require('./routes/about');
 
 var app = express();
 
-mongoose.connect('localhost: 27017/offeredjobs');
+mongoose.connect('');
 require('./config/passport');
 
 // view engine setup
