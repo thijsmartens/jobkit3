@@ -1,0 +1,239 @@
+<head>
+    <style type="text/css">
+        body { background-image: url(http://localhost:3000/images/woonkamer.png);
+            background-size: cover }
+    </style>
+
+</head>
+
+<h1 id="JobkitTitle">Jobkit</h1>
+<p id="slogan">Flexibel klussen voor iedereen</p>
+
+<!-- Kaart met klusjes -->
+
+<div class="col-sm-12 col-md-6">
+
+    <div class="findoffer">
+
+        <p>Ik wil iemand <span class="highlight">helpen</span> of iets <span class="highlight">bijverdienen</span></p>
+        <br>
+
+        <div id="jobmap"></div>
+        <div id="legend">
+            <p>€ per uur</p>
+            <p>V = Vrijwillig</p>
+        </div>
+        <div id="legendtypes">
+            <p></p>
+        </div>
+        <br>
+        <p id="demo"></p>
+
+        <form action="/job-search" method="post">
+        <div style="display: none;">
+            <label for="lg">Longitude:</label>
+            <input type="text" name="lg" id="lg">
+        </div>
+        <div style="display: none;">
+            <label for="lt">Latitude:</label>
+            <input type="text" name="lt" id="lt">
+        </div>
+            <div>
+                <input type="submit" value="Liever een lijst!" class="btn btn-success"/>
+            </div>
+        </form>
+
+
+        <br>
+    </div>
+</div>
+
+
+<!-- Invulformulier om klusje aan te bieden -->
+
+<div class="col-sm-12 col-md-6">
+<div class="findoffer">
+    <p>Ik <span class="highlight">zoek iemand</span> voor een klusje</p>
+    <br>
+    <br>
+
+    <!-- Als men wel ingelogd is -->
+    {{# if login }}
+    <form action="/insert" method="post">
+        <div class="form-group">
+            <input class="form-control" placeholder="Geef een korte titel" type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <select class="form-control" required name="type">
+                <option value="" disabled selected>Soort klusje</option>
+                <option value="Huis">In ons huis</option>
+                <option value="Tuin">In de tuin</option>
+                <option value="Dienst">Eerder een dienst</option>
+                <option value="Ander">Nog iets anders...</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <textarea class="form-control" placeholder="Een beetje meer info" type="text" id="info" name="info" required></textarea>
+        </div>
+
+        <!-- Betalen? -->
+        <div class="form-group">
+            <h4 class="vragen">Betalen?</h4>
+            <div class="radiobutton" style="color:#ffffff">
+                <input type="radio" name="vrijwilligofbetalen" id="vrijwilliger" value="No" required/><span>  Nee, ik zoek vrijwilligers</span><br>
+                <input type="radio" name="vrijwilligofbetalen" id="betalen" value="Yes" /><span>  Ja, ik wil betalen</span>
+            </div>
+        </div>
+
+        <div class="form-group" id="betaalmogelijkheid">
+            <div class="input-group">
+                <input class="form-control" placeholder="Hoeveel wil je betalen" type="number" id="pay" name="pay" aria-label="...">
+                <span class="input-group-addon" id="basic-addon2">€ per uur</span>
+            </div>
+        </div>
+
+        <!-- Huidige locatie of Adres? -->
+        <div class="form-group">
+            <h4 class="vragen">Waar?</h4>
+            <div class="radiobutton" style="color:#ffffff">
+                <input type="radio" name="plaats" id="huidigelocatie" value="No" required/><span>  Gebruik mijn huidige locatie</span><br>
+                <input type="radio" name="plaats" id="ingevenadres" value="Yes" /><span>  Ik geef een adres in</span>
+            </div>
+        </div>
+
+        <div class="form-group" id="locationField">
+            <input class="form-control" placeholder="Adres" type="text" id="autocomplete" name="location" onFocus="geolocate()">
+        </div>
+
+        <script>
+
+            var autocomplete;
+
+            function initMap() {
+                // Create the autocomplete object, restricting the search to geographical
+                // location types.
+                autocomplete = new google.maps.places.Autocomplete(
+                        /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+                        {types: ['geocode']});
+            }
+
+            // Bias the autocomplete object to the user's geographical location,
+            // as supplied by the browser's 'navigator.geolocation' object.
+            function geolocate() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        var geolocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        var circle = new google.maps.Circle({
+                            center: geolocation,
+                            radius: position.coords.accuracy
+                        });
+                        autocomplete.setBounds(circle.getBounds());
+                    });
+                }
+            }
+        </script>
+
+        <!--Nodig om automatisch longitude en latitude te bepalen-->
+
+        <div style="display: none;">
+            <label for="lng">Longitude:</label>
+            <input type="text" name="lng" id="lng">
+        </div>
+        <div style="display: none;">
+            <label for="lat">Latitude:</label>
+            <input type="text" name="lat" id="lat">
+        </div>
+
+
+        <div class="form-group">
+            <div>
+                <input id="zoekkandidaten" type="submit" value="Zoek kandidaten!" class="btn btn-success"/>
+            </div>
+        </div>
+    </form>
+
+
+            <!-- Als men nog niet ingelogd is -->
+
+{{ else }}
+
+
+    <form>
+        <div>
+            <a href="/user/signin" class="btn btn-warning"/>Eerst inloggen!</a>
+        </div>
+        <br>
+        <div class="form-group">
+            <input class="form-control" placeholder="Geef een korte titel" type="text" id="name" name="name" readonly>
+        </div>
+
+        <div class="form-group">
+            <select class="form-control" required name="type" readonly>
+                <option value="" disabled selected>Soort klusje</option>
+                <option value="Huis" disabled>In ons huis</option>
+                <option value="Tuin" disabled>In de tuin</option>
+                <option value="Dienst" disabled>Eerder een dienst</option>
+                <option value="Ander" disabled>Nog iets anders...</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <textarea class="form-control" placeholder="Een beetje meer info" type="text" id="info" name="info" readonly></textarea>
+        </div>
+
+        <!-- Betalen? -->
+        <div class="form-group">
+            <h4 class="vragen">Betalen?</h4>
+            <div class="radiobutton" style="color:#ffffff">
+                <input type="radio" name="vrijwilligofbetalen" id="vrijwilliger" value="No" disabled/><span>  Nee, ik zoek vrijwilligers</span><br>
+                <input type="radio" name="vrijwilligofbetalen" id="betalen" value="Yes" disabled/><span>  Ja, ik wil betalen</span>
+            </div>
+        </div>
+
+
+        <!-- Huidige locatie of Adres? -->
+        <div class="form-group">
+            <h4 class="vragen">Waar?</h4>
+            <div class="radiobutton" style="color:#ffffff">
+                <input type="radio" name="plaats" id="huidigelocatie" value="No" disabled/><span>  Gebruik mijn huidige locatie</span><br>
+                <input type="radio" name="plaats" id="ingevenadres" value="Yes" disabled/><span>  Ik geef een adres in</span>
+            </div>
+        </div>
+
+
+
+
+    </form>
+
+{{/if}}
+
+
+</div>
+</div>
+
+
+<script type="text/javascript" src="javascripts/radiobutton.js"></script>
+
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzPXojlCi_8lfd2qOJOQolV9m_ImwUhGA&libraries=places&callback=initMap" async defer>
+</script>
+<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerwithlabel/src/markerwithlabel.js"></script>
+<script type="text/javascript" src="javascripts/markerwithlabel.js"></script>
+<script type="text/javascript" src="javascripts/tooltip.js"></script>
+<script type="text/javascript" src="javascripts/map.js"></script>
+
+
+
+<script type="text/javascript" src="javascripts/findlocation.js"></script>
+<script type="text/javascript" src="javascripts/findlocation2.js"></script>
+
+
+
+
+
+

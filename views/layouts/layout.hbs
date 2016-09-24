@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!--nodig voor de dynamisch doorzoekbare tabel-->
+    <script src="/javascripts/jquery.sortelements.js" type="text/javascript"></script>
+    <script src="/javascripts/jquery.bdt.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+
+    <link rel='stylesheet' href='/stylesheets/bootswatch/flatly/bootstrap.min.css' />
+
+    <!--nodig voor de dynamisch doorzoekbare tabel-->
+    <link rel='stylesheet' href='/stylesheets/jquery.bdt.css' />
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+
+</head>
+
+<body>
+
+    {{> header }}
+    <div class="container-fluid">
+        {{{ body }}}
+
+        {{> footer }}
+    </div>
+
+</body>
+
+</html>
+

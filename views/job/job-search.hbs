@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="box clearfix" >
+
+            <p><br></p>
+            <p><br></p>
+            <h2 class="label label-success" style="text-align: center;">Zoek hieronder naar klusjes op naam, type, betaling, ... </h2>
+            <p><br></p>
+            <p><br></p>
+            <h3 class="label label-info">De klusjes staan geordend volgens locatie: hoe dichter bij je deur, hoe hoger in de lijst </h3>
+            <p><br></p>
+            <h3 class="label label-default">Je kan ordenen door op de titels te klikken. Wil je alle details kennen en/of je kandidaat stellen? Klik op het klusje </h3>
+
+            <p><br></p>
+            <p><br></p>
+            <p><br></p>
+
+            <table class="table table-striped table-hover " id="bootstrap-table">
+                <thead>
+                <tr>
+                    <th>Naam</th>
+                    <th>Type Job</th>
+                    <th>Betaling</th>
+                    <th>Locatie</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {{# each items }}
+                <tr>
+                    <td><a href="/job-info/{{ this._id }}" style="text-decoration:none;">{{ this.name }}</td>
+                    <td><a href="/job-info/{{ this._id }}" style="text-decoration:none;">{{ this.type }}</td>
+                    <td><a href="/job-info/{{ this._id }}" style="text-decoration:none;">{{ this.payabletopublish }}</td>
+                    <td><a href="/job-info/{{ this._id }}" style="text-decoration:none;">{{ this.placetopublish }}</td>
+                    <td><a href="/job-info/{{ this._id }}" style="text-decoration:none;"><a href="/job-info/{{ this._id }}" title="{{ this.info }}" data-toggle="tooltip" data-placement="right" style="text-align: center"><i class="fa fa-info-circle" aria-hidden="true"></i></a></a></td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready( function () {
+        $('#bootstrap-table').bdt({
+            showSearchForm: 1,
+            showEntriesPerPageField: 1
+        });
+    });
+</script>
+<script type="text/javascript" src="javascripts/tooltip.js"></script>
+

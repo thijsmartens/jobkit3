@@ -1,0 +1,407 @@
+body {
+  background-color: transparent;
+  font-size: 20px;
+}
+
+.panel {
+  /*box-shadow: 10px 10px 5px #888888;*/
+}
+
+#JobkitTitle {
+  color: #18bc9c;
+  text-align: center;
+  font-size: 100px;
+}
+
+#slogan {
+  color: #ffffff;
+  font-size: 50px;
+  text-align: center;
+}
+
+#legend {
+  color: #2C3E50;
+  background-color: whitesmoke;
+  font-family: "Lato", "Arial", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  margin: 5px;
+  border: 1px solid #2C3E50;
+  border-radius: 10px;
+  width: 120px;
+  padding: 5px 5px 0px 5px;
+
+}
+
+#legendtypes {
+  color: #2C3E50;
+  /*background-color: whitesmoke;*/
+  font-family: "Lato", "Arial", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0px;
+  /*border: 1px solid #2C3E50;*/
+  /*border-radius: 10px;*/
+  width: 50px;
+  /*padding: 0px 0px 0px 0px;*/
+  height: 120px
+
+}
+
+#linklijst {
+  color: #ffffff;
+  font-size: 22px;
+}
+
+#navigation {
+  background-color: #505050;
+  border: none;
+  color: #FFCC00;
+}
+
+.form-group{
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.findoffer {
+  color: #18bc9c;
+  margin-top: 0px;
+  font-size: 2.5rem;
+  text-align: center;
+  width:90%;
+  height: 700px;
+}
+
+.highlight {
+  color: #ffffff;
+}
+
+.vragen {
+  color: #ffffff;
+  text-align: left;
+}
+
+#jobmap {
+  width: 100%;
+  height: 400px;
+  background-color: #CCC;
+
+}
+
+.alert {
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.radiobutton {
+  font-size: 1.7rem;
+  text-align: left;
+}
+
+
+/*voor het dropdown menu type job*/
+select:required:invalid {
+  color:    #BBBBC2;
+}
+option[value=""][disabled] {
+  display: none;
+}
+option {
+  color: black;
+}
+
+
+
+/*om de rijen op de homepage 'clickable' te maken*/
+
+td a { display: block;}
+
+
+/*google maps*/
+
+/*labels met prijsnotering*/
+
+.labels {
+  /*color: white;*/
+  background-color: whitesmoke;
+  font-family: "Lato", "Arial", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  width: 35px;
+  border: 1px solid #18bc9c;
+  border-radius: 25px;
+  white-space: nowrap;
+  /*background-image: url(http://localhost:3001/images/ic_home_white_24px.svg);*/
+}
+
+
+.labelhuis {
+  color: #2C3E50;
+  background-color: whitesmoke;
+  font-family: "Lato", "Arial", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  width: 35px;
+  border: 1px solid #2C3E50;
+  border-radius: 25px;
+  white-space: nowrap;
+  /*background-image: url(http://localhost:3001/images/ic_home_white_24px.svg);*/
+}
+
+.labeltuin {
+  color: #18BC9C;
+  background-color: whitesmoke;
+  font-family: "Lato", "Arial", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  width: 35px;
+  border: 1px solid #18BC9C;
+  border-radius: 25px;
+  white-space: nowrap;
+  /*background-image: url(http://localhost:3001/images/ic_home_white_24px.svg);*/
+}
+
+.labeldienst {
+  color: #3498DB;
+  background-color: whitesmoke;
+  font-family: "Lato", "Arial", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  width: 35px;
+  border: 1px solid #3498DB;
+  border-radius: 25px;
+  white-space: nowrap;
+  /*background-image: url(http://localhost:3001/images/ic_home_white_24px.svg);*/
+}
+
+/*infowindow*/
+
+.gm-style-iw {
+  width: 120px !important;
+  top: 15px !important;
+  left: 0px !important;
+  background-color: #fff;
+  box-shadow: 4px 4px 8px #18bc9c;
+  border: 1px solid #18bc9c;
+  border-radius: 2px 2px 10px 10px;
+}
+#iw-container {
+  margin-bottom: 10px;
+}
+#iw-container .iw-title {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px;
+  background-color: #18bc9c;
+  color: white;
+  margin: 0;
+  border-radius: 2px 2px 0 0;
+  max-height: 140px;
+  width: 120px;
+}
+#iw-container .iw-content {
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+  margin-right: 1px;
+  padding: 15px 5px 20px 15px;
+  max-height: 140px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+/* nodig om de 'close' button van de infowindows weg te laten */
+.gm-style-iw + div {display: none;}
+
+
+/*nodig voor addressautocomplete */
+
+#locationField, #controls {
+  float: none
+        /*position: relative;*/
+        /*width: 480px;*/;
+
+      }
+      #autocomplete {
+        float: none
+        /*position: relative;*/
+        /*top: 10px;*/
+        /*left: 0px;*/
+        /*bottom: 10px;*/
+        /*width: 99%;*/
+      }
+      .label {
+        text-align: right;
+        font-weight: bold;
+        width: 100px;
+        color: #303030;
+      }
+      #address {
+        border: 1px solid #000090;
+        background-color: #f0f0ff;
+        width: 480px;
+        padding-right: 2px;
+      }
+      #address td {
+        font-size: 10pt;
+      }
+      .field {
+        width: 99%;
+      }
+      .slimField {
+        width: 80px;
+      }
+      .wideField {
+        width: 200px;
+      }
+      #locationField {
+        height: 20px;
+        margin-bottom: 2px;
+      }
+
+/*om de zoekbutton van invulformulier! niet te laten overlappen */
+
+#zoekkandidaten {
+  position: relative;
+  float: none;
+  top: 30px
+}
+
+/*table*/
+
+.box > h2 {
+  font-size: 25px;
+  color: white;
+}
+
+.box > h3 {
+  color: white;
+  font-size: 17px;
+}
+
+.box > p {
+  height: 2px;
+
+}
+
+.bdt {
+
+}
+
+
+.bdt thead {
+
+}
+
+.bdt > thead > tr > th, .bdt > tbody > tr > td {
+  font-size: 16px;
+}
+
+.bdt tr:last-child td, .bdt tr:last-child th {
+  border-bottom: 1px solid #f0f1f5;
+}
+
+.bdt > tbody > tr > td, .bdt > tbody > tr > th, .bdt > tfoot > tr > td, .bdt > tfoot > tr > th, .bdt > thead > tr > td, .bdt > thead > tr > th {
+  border-color: #e6e7ed;
+  padding: 17px 25px;
+}
+
+.search-form .form-control {
+  border-color: #e6e7ed;
+  border-radius: 25px;
+  box-shadow: none;
+  font-weight: 400;
+  height: 56px;
+  width: 100%;
+
+}
+
+
+
+#page-rows-form {
+  padding-left: 20px;
+}
+
+#page-rows-form label {
+  line-height: 40px;
+  padding-right: 10px;
+}
+
+#page-rows-form select {
+  background-clip: padding-box;
+  border-color: #e6e7ed;
+  border-radius: 0;
+  box-shadow: none;
+  font-weight: 400;
+  height: 56px;
+  margin: 0;
+  outline: 0 none;
+  padding: 13px;
+}
+
+#table-footer {
+  margin-bottom: 20px;
+}
+
+.pagination {
+  padding-right: 20px
+}
+
+.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
+  border-color: #fff;
+}
+
+.pagination > li {
+
+  display: inline-block;
+  margin: 0 2px;
+}
+
+.pagination > li > a, .pagination > li > span {
+  border: none;
+  border-radius: 15px;
+}
+
+.pagination > li > a, .pagination > li > span {
+  background: #ebecf2;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  text-align: center;
+  width: 40px;
+  color: #333;
+}
+
+.pagination > li > a:hover, .pagination > li > span:hover {
+  background: #E2E3EC;
+}
+
+.pagination > li:last-child > a, .pagination > li:last-child > span {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  color: #363f45;
+}
+
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.pagination > li.active > a, .pagination > li.active > span {
+  font-weight: 700;
+}
+
+.table-info {
+  font-size: 12px;
+  line-height: 50px;
+  margin-left: 40px;
+}

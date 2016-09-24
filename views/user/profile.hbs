@@ -1,0 +1,27 @@
+<div class="col-md-4 col-md-offset-4">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Mijn Profiel</h2>
+    </div>
+    <div class="panel-body">
+        <p><b>Naam:</b> {{ user.firstname }} {{ user.lastname }}</p>
+        <p><b>Email:</b> {{ user.email }}</p>
+        <p><b>Info:</b><p> {{ user.info }}</p>
+    </div>
+</div>
+
+
+<br>
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h2>Ga snel naar...</h2>
+    </div>
+    <div class="panel-body">
+        <br>
+            <p><a href="/job-admin">Zelf aangeboden Jobs</a></p>
+        <br>
+            <p><a href="/job-cart">Zelf gekozen Jobs</a></p>
+        <br>
+    </div>
+</div>
+</div>

@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+        <div class="panel panel-success">
+        <div class="panel-heading">
+        {{#each job}}
+            <h2>{{ name }} - {{type}}</h2>
+        </div>
+        <div class="panel-body">
+            <h3>Details?</h3>
+            <p>{{info}}</p>
+            <br>
+            <h3>Betaling?</h3>
+            <p>{{payabletopublish}}</p>
+            <br>
+            <h3>Waar?</h3>
+            <p>{{placetopublish}}</p>
+            <br>
+
+            {{# if ../login }}
+                <div style="alignment: right">
+                <a href="/add-to-cart/{{ _id }}" class="btn btn-success">Ik stel me kandidaat!</a>
+                    <a href="/" class="btn btn-default">Terug</a>
+                </div>
+            {{ else }}
+                <a href="/user/signin" class="btn btn-primary"/>Kandidaat? Eerst inloggen</a>
+                <a href="/" class="btn btn-default">Terug</a>
+            {{/if}}
+            </div>
+            </div>
+            </div>
+            </div>
+
+
+
+{{/each}}
+
+
